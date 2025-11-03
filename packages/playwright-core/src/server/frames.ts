@@ -1459,8 +1459,10 @@ export class Frame extends SdkObject {
     progress.throwIfAborted();
 
     const { frame, info } = selectorInFrame || { frame: this, info: undefined };
-    const world = options.expression === 'to.have.property' ? 'main' : (info?.world ?? 'utility');
-    const context = await frame._context(world);
+    // HelpRequired:
+    // I dont know what mainWorld is for but commenting it works 🙂. Please help me
+    // const world = options.expression === 'to.have.property' ? 'main' : (info?.world ?? 'utility');
+    const context = await frame._context('main');
     const injected = await context.injectedScript();
     progress.throwIfAborted();
 

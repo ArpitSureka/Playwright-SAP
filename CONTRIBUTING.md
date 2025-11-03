@@ -19,3 +19,5 @@ npm dist-tag add playwright-sap@<version> stable
 npm dist-tag add playwright-sap@1.1.4 stable
 npm dist-tag add playwright-sap-core@1.1.4 stable
 npm dist-tag add @playwright-sap/test@1.1.4 stable
+
+HelpRequired: Tag

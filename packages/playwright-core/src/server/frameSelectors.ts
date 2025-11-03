@@ -144,7 +144,10 @@ export class FrameSelectors {
     for (let i = 0; i < frameChunks.length - 1; ++i) {
       const info = this._parseSelector(frameChunks[i], options);
       frame = this._jumpToAriaRefFrameIfNeeded(selector, info, frame);
-      const context = await frame._context(info.world);
+      // HelpRequired:
+      // I dont know what mainWorld is for but commenting it works 🙂. Please help me
+      // const context = await frame._context(info.world);
+      const context = await frame._context('main');
       const injectedScript = await context.injectedScript();
       const handle = await injectedScript.evaluateHandle((injected, { info, scope, selectorString }) => {
         const element = injected.querySelector(info.parsed, scope || document, info.strict);
@@ -174,6 +177,7 @@ export class FrameSelectors {
     // Be careful, |this.frame| can be different from |resolved.frame|.
     if (!resolved)
       return;
+    // HelpRequired:
     // I dont know what mainWorld is for but commenting it works 🙂. Please help me
     // const context = await resolved.frame._context(options?.mainWorld ? 'main' : resolved.info.world);
     const context = await resolved.frame._context('main');

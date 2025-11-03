@@ -27,7 +27,7 @@ export type UI5Node = {
 
 // Checks if the window is SAP UI5 window
 export function checkSAPUI5(win: Window): boolean {
-  return !!(win.sap && win.sap.ui && win.sap.ui.getCore && typeof win.sap.ui.getCore().byId === 'function');
+  return !!(win.sap?.ui?.getCore && typeof win.sap.ui.getCore().byId === 'function');
 }
 
 /**
