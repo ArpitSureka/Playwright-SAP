@@ -34,13 +34,13 @@ jobs:
       matrix:
         channel: [bidi-chromium, moz-firefox]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       if: github.event_name != 'workflow_dispatch'
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       if: github.event_name == 'workflow_dispatch'
       with:
         ref: ${{ github.event.inputs.ref }}
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@v6
       with:
         node-version: 20
     - run: npm ci
@@ -60,7 +60,7 @@ jobs:
         BIDI_FFPATH: ${{ steps.install_firefox.outputs.bidi_ffpath }}
     - name: Upload csv report to GitHub
       if: ${{ !cancelled() }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: csv-report-${{ matrix.channel }}
         path: test-results/report.csv
@@ -68,7 +68,7 @@ jobs:
 
     - name: Azure Login
       if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
-      uses: azure/login@v2
+      uses: azure/login@v3
       with:
         client-id: ${{ secrets.AZURE_BLOB_REPORTS_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_BLOB_REPORTS_TENANT_ID }}
