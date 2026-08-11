@@ -1,3 +1,5 @@
+
+
 # 🎭 + <img src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg" alt="SAPLogo" width="50"/>&nbsp;Playwright-SAP
 
 ## [Documentation](https://playwright-sap.dev/)
@@ -42,4 +44,4 @@ Heartfelt thanks to all the developers and teams at Microsoft who made Playwrigh
 
 ----------------------------------------------------------------------------------------------------------------
 
-Note that this project is no where associated with SAP, Playwright or Microsoft Corportaion.
+Note that this project is no where associated with SAP, Playwright or Microsoft Corporation.
